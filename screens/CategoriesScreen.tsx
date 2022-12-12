@@ -16,6 +16,7 @@ const CategoriesScreen = (props: Props) => {
           color={itemData.item.color}
         ></CategoryGridTile>
       )}
+      numColumns={2}
     ></FlatList>
   );
 };
