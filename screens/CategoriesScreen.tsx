@@ -2,20 +2,24 @@ import { StyleSheet, Text, View, FlatList } from "react-native";
 import React from "react";
 import { CATEGORIES } from "../data/dummy-data";
 import CategoryGridTile from "../components/CategoryGridTile";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import {
+  NativeStackNavigationProp,
+  NativeStackScreenProps,
+} from "@react-navigation/native-stack";
 import { RootStackParamsList } from "./RootStackParamsList";
-import { useNavigation } from "@react-navigation/native";
+// import { useNavigation } from "@react-navigation/native";
 
+// type categoriesScreenProps = NativeStackNavigationProp<
+//   RootStackParamsList,
+//   "Categories"
+// >;
 type Props = {};
 
-type categoriesScreenProps = NativeStackNavigationProp<
-  RootStackParamsList,
-  "Categories"
->;
+type categoriesScreenProps = NativeStackScreenProps<RootStackParamsList>;
 
-const CategoriesScreen = (props: Props) => {
+const CategoriesScreen = ({ navigation }: categoriesScreenProps) => {
   // const { navigation } = props;
-  const navigation = useNavigation<categoriesScreenProps>();
+  // const navigation = useNavigation<categoriesScreenProps>();
   const pressHandler = () => {
     navigation.navigate("Overview");
   };
