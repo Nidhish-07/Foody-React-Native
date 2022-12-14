@@ -9,17 +9,24 @@ import { RootStackParamsList } from "./screens/RootStackParamsList";
 
 const Stack = createNativeStackNavigator<RootStackParamsList>();
 
-
-
 export default function App() {
   return (
     <React.Fragment>
       <StatusBar style="dark"></StatusBar>
       <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator
+          screenOptions={{
+            headerStyle: { backgroundColor: "#402101" },
+            headerTintColor: "#fff",
+            contentStyle: { backgroundColor: "#845628" },
+          }}
+        >
           <Stack.Screen
             name="Categories"
             component={CategoriesScreen}
+            options={{
+              title: "All Categories",
+            }}
           ></Stack.Screen>
           <Stack.Screen
             name="Overview"
