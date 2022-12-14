@@ -1,7 +1,18 @@
-import { StyleSheet, Text, View, Pressable, Platform } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Pressable,
+  Platform,
+  GestureResponderEvent,
+} from "react-native";
 import React from "react";
 
-type Props = { title: string; color: string };
+type Props = {
+  title: string;
+  color: string;
+  onPress: (event: GestureResponderEvent) => void;
+};
 
 const CategoryGridTile = (props: Props) => {
   return (
@@ -12,6 +23,7 @@ const CategoryGridTile = (props: Props) => {
           pressed ? styles.buttonPressed : null,
         ]}
         android_ripple={{ color: "#ccc" }}
+        onPress={props.onPress}
       >
         <View style={[styles.innerContainer, { backgroundColor: props.color }]}>
           <Text style={styles.title}>{props.title}</Text>
