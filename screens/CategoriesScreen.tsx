@@ -20,8 +20,8 @@ type categoriesScreenProps = NativeStackScreenProps<RootStackParamsList>;
 const CategoriesScreen = ({ navigation }: categoriesScreenProps) => {
   // const { navigation } = props;
   // const navigation = useNavigation<categoriesScreenProps>();
-  const pressHandler = () => {
-    navigation.navigate("Overview");
+  const pressHandler = (itemData: any) => {
+    navigation.navigate("Overview", { categoryId: itemData.item.id });
   };
   return (
     <FlatList
@@ -31,7 +31,7 @@ const CategoriesScreen = ({ navigation }: categoriesScreenProps) => {
         <CategoryGridTile
           title={itemData.item.title}
           color={itemData.item.color}
-          onPress={pressHandler}
+          onPress={pressHandler.bind(this,itemData)}
         ></CategoryGridTile>
       )}
       numColumns={2}

@@ -1,4 +1,4 @@
 export type RootStackParamsList = {
-    Overview: undefined;
-    Categories: undefined;
-  };
+  Overview: { categoryId: string };
+  Categories: undefined;
+};
