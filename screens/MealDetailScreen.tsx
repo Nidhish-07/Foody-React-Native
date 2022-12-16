@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, ScrollView } from "react-native";
 import React from "react";
 import {
   NativeStackNavigationProp,
@@ -18,11 +18,14 @@ const MealDetailScreen = ({ route, navigation }: any) => {
   // console.log(selectedMeal);
 
   return (
-    <View>
-      <Image source={{ uri: selectedMeal?.imageUrl }}></Image>
-      <Text>{selectedMeal?.title}</Text>
+    <ScrollView style={styles.rootContainer}>
+      <Image
+        source={{ uri: selectedMeal?.imageUrl }}
+        style={styles.image}
+      ></Image>
+      <Text style={styles.title}>{selectedMeal?.title}</Text>
       <View style={styles.details}>
-        <Text style={styles.detailItem}>{selectedMeal?.duration}m</Text>
+        <Text style={styles.detailItem}>{selectedMeal?.duration}min</Text>
         <Text style={styles.detailItem}>
           {selectedMeal?.complexity.toUpperCase()}
         </Text>
@@ -30,15 +33,27 @@ const MealDetailScreen = ({ route, navigation }: any) => {
           {selectedMeal?.affordability.toUpperCase()}
         </Text>
       </View>
-      <Text>Ingredients</Text>
-      {selectedMeal?.ingredients.map((ingredient) => (
-        <Text key={ingredient}>{ingredient}</Text>
-      ))}
-      <Text>Steps</Text>
-      {selectedMeal?.steps.map((step) => (
-        <Text key={step}>{step}</Text>
-      ))}
-    </View>
+      <View style={styles.listOuterContainer}>
+        <View style={styles.listContainer}>
+          <View style={styles.subtitleContainer}>
+            <Text style={styles.subtitle}>Ingredients</Text>
+          </View>
+          {selectedMeal?.ingredients.map((ingredient) => (
+            <View key={ingredient} style={styles.listItem}>
+              <Text style={styles.itemText}>{ingredient}</Text>
+            </View>
+          ))}
+          <View style={styles.subtitleContainer}>
+            <Text style={styles.subtitle}>Steps</Text>
+          </View>
+          {selectedMeal?.steps.map((step) => (
+            <View key={step} style={styles.listItem}>
+              <Text style={styles.itemText}>{step}</Text>
+            </View>
+          ))}
+        </View>
+      </View>
+    </ScrollView>
   );
 };
 
@@ -54,5 +69,52 @@ const styles = StyleSheet.create({
   detailItem: {
     marginHorizontal: 4,
     fontSize: 12,
+    color: "#fff",
+  },
+  image: {
+    width: "100%",
+    height: 350,
+  },
+  title: {
+    fontWeight: "bold",
+    margin: 8,
+    textAlign: "center",
+    fontSize: 24,
+    color: "#fff",
+  },
+  subtitle: {
+    color: "#fff",
+    fontSize: 18,
+    fontWeight: "bold",
+
+    textAlign: "center",
+  },
+  subtitleContainer: {
+    borderBottomColor: "#fff",
+    borderBottomWidth: 2,
+    margin: 4,
+    padding: 6,
+    marginHorizontal: 12,
+    marginVertical: 4,
+  },
+  listItem: {
+    borderRadius: 6,
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    marginVertical: 4,
+    marginHorizontal: 12,
+    backgroundColor: "#fff",
+  },
+  itemText: {
+    textAlign: "center",
+  },
+  listContainer: {
+    width: "80%",
+  },
+  listOuterContainer: {
+    alignItems: "center",
+  },
+  rootContainer: {
+    marginBottom: 32,
   },
 });
