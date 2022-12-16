@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   buttonPressed: {
-    // opacity: 0.5,
+  // opacity: 0.5,
   },
   title: {
     fontWeight: "bold",

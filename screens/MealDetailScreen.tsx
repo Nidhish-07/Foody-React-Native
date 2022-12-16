@@ -1,4 +1,11 @@
-import { StyleSheet, Text, View, Image, ScrollView } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  ScrollView,
+  Button,
+} from "react-native";
 import React from "react";
 import {
   NativeStackNavigationProp,
@@ -6,6 +13,8 @@ import {
 } from "@react-navigation/native-stack";
 import { RootStackParamsList } from "./RootStackParamsList";
 import { MEALS } from "../data/dummy-data";
+import { executeNativeBackPress } from "react-native-screens";
+import IconButton from "../components/IconButton";
 
 type Props = {};
 
@@ -16,6 +25,17 @@ const MealDetailScreen = ({ route, navigation }: any) => {
 
   const selectedMeal = MEALS.find((meal) => meal.id === mealId);
   // console.log(selectedMeal);
+  React.useLayoutEffect(() => {
+    navigation.setOptions({
+      headerRight: () => (
+        <IconButton
+          onPress={() => console.log("Pressed")}
+          icon="star"
+          color="#fff"
+        ></IconButton>
+      ),
+    });
+  }, [navigation]);
 
   return (
     <ScrollView style={styles.rootContainer}>
