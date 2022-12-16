@@ -7,6 +7,8 @@ import {
   Platform,
 } from "react-native";
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
 type Props = {
   title: string;
@@ -14,14 +16,22 @@ type Props = {
   duration: number;
   affordability: string;
   complexity: string;
+  id: string;
 };
 
 const MealItem = (props: Props) => {
+  const navigation = useNavigation<NativeStackNavigationProp<any>>();
+
+  const selectMealItemHandler = () => {
+    navigation.navigate("MealDetail", { mealId: props.id });
+  };
+
   return (
     <View style={styles.mealItem}>
       <Pressable
         android_ripple={{ color: "#ccc" }}
         style={(pressed) => (pressed ? styles.buttonPressed : null)}
+        onPress={selectMealItemHandler}
       >
         <View>
           <Image source={{ uri: props.imageUrl }} style={styles.image}></Image>
