@@ -2,6 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import { Button, StyleSheet, Text, View } from "react-native";
 import CategoriesScreen from "./screens/CategoriesScreen";
 import React, { ReactNode } from "react";
+import 'react-native-gesture-handler';
 import { NavigationContainer } from "@react-navigation/native";
 import {
   createNativeStackNavigator,
