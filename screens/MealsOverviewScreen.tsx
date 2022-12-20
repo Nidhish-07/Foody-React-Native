@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, FlatList, Pressable } from "react-native";
 import React from "react";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { RootStackParamsList } from "./RootStackParamsList";
+import { RootStackParamsList } from "./RootParamsLists";
 import { useRoute } from "@react-navigation/native";
 import { CATEGORIES, MEALS } from "../data/dummy-data";
 import Meal from "../models/meal";

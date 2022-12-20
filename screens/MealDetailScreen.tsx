@@ -11,7 +11,7 @@ import {
   NativeStackNavigationProp,
   NativeStackScreenProps,
 } from "@react-navigation/native-stack";
-import { RootStackParamsList } from "./RootStackParamsList";
+import { RootStackParamsList } from "./RootParamsLists";
 import { MEALS } from "../data/dummy-data";
 import { executeNativeBackPress } from "react-native-screens";
 import IconButton from "../components/IconButton";

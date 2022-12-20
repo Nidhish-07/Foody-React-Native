@@ -6,7 +6,7 @@ import {
   NativeStackNavigationProp,
   NativeStackScreenProps,
 } from "@react-navigation/native-stack";
-import { RootStackParamsList } from "./RootStackParamsList";
+import { RootStackParamsList } from "./RootParamsLists";
 // import { useNavigation } from "@react-navigation/native";
 
 // type categoriesScreenProps = NativeStackNavigationProp<
